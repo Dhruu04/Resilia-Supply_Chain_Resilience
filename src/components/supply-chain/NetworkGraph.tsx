@@ -476,12 +476,7 @@ export function NetworkGraph({
     if (!canvas) return;
     const factor = direction === "in" ? 1.3 : 1 / 1.3;
     const zb = zoom<HTMLCanvasElement, unknown>();
-    select(canvas)
-      .transition()
-      .duration(250)
-      .call((t) =>
-        zb.scaleBy(t as unknown as ReturnType<typeof select<HTMLCanvasElement, unknown>>, factor),
-      );
+    zb.scaleBy(select(canvas), factor);
   };
 
   const healthyCount = Object.values(statuses).filter((s) => s === "healthy").length;

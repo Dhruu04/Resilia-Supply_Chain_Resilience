@@ -116,10 +116,13 @@ export function CompanySimulatorCanvas({
       if (prevKeys.length === nextKeys.length) {
         let isSame = true;
         for (const k of nextKeys) {
+          const prevPos = prev[k];
+          const nextPos = customPositions[k];
           if (
-            !prev[k] ||
-            prev[k].x !== customPositions[k].x ||
-            prev[k].y !== customPositions[k].y
+            !prevPos ||
+            !nextPos ||
+            prevPos.x !== nextPos.x ||
+            prevPos.y !== nextPos.y
           ) {
             isSame = false;
             break;

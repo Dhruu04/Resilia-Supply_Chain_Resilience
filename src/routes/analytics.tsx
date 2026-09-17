@@ -27,7 +27,7 @@ import { useSupply } from "@/lib/supply-chain/store";
 
 export const Route = createFileRoute("/analytics")({
   validateSearch: (search: Record<string, unknown>): { tab?: "risk" | "monte-carlo" | "esg" } => ({
-    tab: (search.tab as "risk" | "monte-carlo" | "esg") || undefined,
+    tab: (search["tab"] as "risk" | "monte-carlo" | "esg") || undefined,
   }),
   head: () => ({
     meta: [
